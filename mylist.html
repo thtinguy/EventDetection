@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<HTML>
+  <HEAD>
+    <TITLE>
+      A Small Hello
+    </TITLE>
+  </HEAD>
+  <style>
+  a {
+    color: #0254EB
+  }
+  a:visited {
+    color: #0254EB
+  }
+  a.morelink {
+    text-decoration:none;
+    outline: none;
+  }
+  .morecontent span {
+    display: none;
+  }
+  .comment {
+    width: 400px;
+    background-color: #f0f0f0;
+    margin: 10px;
+  }
+  </style>
+  <BODY>
+
+    <pre id="mycom" class="comment more">
+    </pre>
+    <a id="more" href="#">more</a>
+
+      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+      <script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script>
+      $(document).ready(function() {
+        var fullText, maxChar;
+        var showChar = 500;
+        var ellipsestext = "...";
+        var moretext = "more";
+        var lesstext = "less";
+        var text1 = '' ;
+        var file = new XMLHttpRequest();
+        file.open("GET", "http://localhost/englandEvent.txt", true);
+        file.onreadystatechange = function() {
+          if (file.readyState === 4) {  // Makes sure the document is ready to parse
+            if (file.status === 200) {  // Makes sure it's found the file
+              fullText = file.responseText;
+              maxChar = 500;
+              updateText(fullText, maxChar);
+            }
+          }
+        };
+        file.send() ;
+        function updateText(fullText, maxChar) {
+          if (maxChar > fullText.length) {
+            maxChar = fullText.length;
+          }
+          var extract = fullText.substring(0, maxChar);
+          $("#mycom").html(extract);
+        }
+        $("#more").click(function(){
+          maxChar += 500;
+          updateText(fullText, maxChar);
+        });
+    });
+
+  </script>
+</BODY>
+</HTML>

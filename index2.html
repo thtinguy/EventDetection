@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="main.js?a"></script>
+	<script src="event.js"></script>
+	<style>
+	</style>
+</head>
+
+<select name="algolist" id="algolist" accesskey="target">
+	<option value="moving_average">Moving average</option>
+	<option value="box-and-whisker">Box-And-Whisker</option>
+</select >
+<select name="datalist" id="datalist" accesskey="target">
+	<option value="england">England Income</option>
+	<option value="deflator">Deflator</option>
+</select>
+<input type=button value="Go" onclick="goToNewPage()" />
+<div id="chart_div" style="width: 100%;height: 300px;display: inline-block;">
+</div>
+<style type="text/css">
+/*pre {
+float: right;
+width: 1%;
+margin-left:10px;
+}*/
+h2{
+	color:  red ;
+}
+a {
+	color: #0254EB
+}
+a:visited {
+	color: #0254EB
+}
+a.morelink {
+	text-decoration:none;
+	outline: none;
+}
+.morecontent span {
+	display: none;
+}
+.comment {
+	width: auto;
+	background-color: #f0f0f0;
+	margin: 10px;
+}
+</style>
+<body>
+
+	<div style="width:100%;">
+		<div style="float:left; width:50%; ">
+			<pre style="float:left; width:50%; ">
+				<h2> ALL EVENTS </h2>
+				<pre id="mycomleft" class="comment more">
+				</pre>
+				<a id="moreleft" href="#">more</a>
+			</pre>
+		</div>
+
+		<pre style="float:right; width:50%; ">
+			<h2> EVENTS DETECTED</h2>
+			<pre id="mycom" class="comment more">
+			</pre>
+			<a id="more" href="#">more</a>
+		</pre>
+
+	</body>
+	</html>
