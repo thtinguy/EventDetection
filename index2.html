@@ -18,6 +18,7 @@
 <select name="datalist" id="datalist" accesskey="target">
 	<option value="england">England Income</option>
 	<option value="deflator">Deflator</option>
+	<option value="shooting">LA shooting</option>
 </select>
 <input type=button value="Go" onclick="goToNewPage()" />
 <div id="chart_div" style="width: 100%;height: 300px;display: inline-block;">
@@ -49,25 +50,32 @@ a.morelink {
 	background-color: #f0f0f0;
 	margin: 10px;
 }
+#a{
+   width:40%; /* or whatever width you want. */
+   display: inline-block;
+} ;
+#b{
+   width:40%; /* or whatever width you want. */
+   display: inline-block;
+} ;
 </style>
 <body>
-
-	<div style="width:100%;">
-		<div style="float:left; width:50%; ">
-			<pre style="float:left; width:50%; ">
+	<div id = 'a' style="float:left; width:40%; ">
+			<pre >
 				<h2> ALL EVENTS </h2>
 				<pre id="mycomleft" class="comment more">
 				</pre>
 				<a id="moreleft" href="#">more</a>
 			</pre>
 		</div>
-
-		<pre style="float:right; width:50%; ">
+	<div id = 'b' style="float:left; width:40%;margin-left:60px">
+		<pre >
 			<h2> EVENTS DETECTED</h2>
 			<pre id="mycom" class="comment more">
 			</pre>
 			<a id="more" href="#">more</a>
 		</pre>
+	</div>
 
 	</body>
 	</html>

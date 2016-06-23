@@ -22,7 +22,16 @@ function goToNewEvent()
 	}else if(data == 'england' && algo == 'box-and-whisker'){
 		event = "http://localhost/englandEvent2.txt" ;
 		allEvent = "http://localhost/England.csv" ;
-	}else{
+	}	else if (data == 'shooting' && algo == 'moving_average') {
+		event = "http://localhost/LAshooting1TweetsEventMA.txt" ;
+//			allEvent = "http://localhost/LAshooting1TweetsEventMA.txt" ;
+		allEvent = "" ;
+		}else if (data == 'shooting' && algo == 'box-and-whisker') {
+			event = "http://localhost/LAshooting1TweetsEventBox.txt" ;
+//			allEvent = "http://localhost/LAshooting1TweetsEventMA.txt" ;
+		allEvent = "" ;
+			}else{
+
 		alert(data) ;
 	}
 

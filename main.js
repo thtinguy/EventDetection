@@ -22,8 +22,14 @@ function goToNewPage()
 	}else if(data == "deflator" &&  algo == 'moving_average'){
 		graph = "delatorMA.csv.js" ;
 	}else if(data == 'england' && algo == 'box-and-whisker'){
-		graph = 'englandbox.csv.js'
-	}else{
+		graph = 'englandbox.csv.js' ;
+	}else if (data == 'shooting' && algo == 'box-and-whisker') {
+		graph = 'LAshooting1Box.csv.js' ;
+	}
+	else if (data == 'shooting' && algo == 'moving_average') {
+		graph = 'LAshooting1MA.csv.js' ;
+	}
+	else{
 		alert('error') ;
 	}
 	 goToNewEvent() ;
@@ -140,8 +146,16 @@ function drawChart1() {
   function selectHandler() {
     var selectedItem = chart.getSelection()[0];
     if (selectedItem) {
-      var value = selectedItem.column;
-			$("#mycomleft").html(value);
+			$.getJSON("gettingJSONTutorial.js", function(result){
+				var value = data.getValue(selectedItem.row, selectedItem.column);
+				if(value % 2 == 0)
+				$("#mycomleft").html(result.events[0].Year +  " " +result.events[0].Event);
+				if(value % 2 == 1)
+				$("#mycomleft").html(result.events[1].Year + " " +  result.events[1].Event);
+
+		    });
+          // var value = data.getValue(selectedItem.row, selectedItem.column);
+			// $("#mycomleft").html(result.events[0].Year + result.events[0].event);
     }
   }
 
